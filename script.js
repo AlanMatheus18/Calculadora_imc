@@ -8,7 +8,7 @@ header.setAttribute('id', 'header')
 
 
 header.style.width = '100vw';
-header.style.height = '30vh';
+header.style.height = '-100vh';
 header.style.backgroundColor = '#979393';
 header.style.display = 'flex'
 header.style.justifyContent = 'center';
@@ -35,7 +35,7 @@ header.appendChild(img);
 const form = document.createElement('form');
 
 form.setAttribute('id', 'formulario');
-
+form.style.height = '-100vh'
 document.body.appendChild(form);
 
 
@@ -82,8 +82,10 @@ div.appendChild(idade);
 
 //criando btn
 
-const submitButton = document.createElement('input');
-submitButton.type = 'submit';
+const submitButton = document.createElement('button');
+submitButton.setAttribute('id', 'calcular')
+submitButton.type = 'button';
+submitButton.innerText = 'Calcular';
 submitButton.style.width = '128px'
 submitButton.style.height = '43px'
 submitButton.style.backgroundColor = '#ED3030'
@@ -137,7 +139,7 @@ div2.appendChild(peso);
 
 const linha = document.createElement('hr');
 
-linha.style.marginTop = '100px'
+linha.style.marginTop = '80px'
 
 document.body.appendChild(linha);
 
@@ -146,7 +148,7 @@ document.body.appendChild(linha);
 const div3 = document.createElement('div');
 div3.setAttribute('id', 'secundaria');
 
-div3.style.width = '100%'
+div3.style.width = '100vw'
 div3.style.height = '55px'
 div3.style.backgroundColor = '#968B8B'
 
@@ -160,28 +162,58 @@ const div4 = document.createElement('div');
 
 div4.setAttribute.class = 'main'
 
-div4.style.width = '500px'
-div4.style.height = '500px'
-div4.style.backgroundColor = 'white'
+div4.style.width = '200px'
+div4.style.height = '200px'
 
 document.body.appendChild(div4);
 
-const btnCalcular = document.getElementById("calcular");
+submitButton.addEventListener("click", function() {
+   
+  const nome = document.getElementById("nome").value;
+  const idade = document.getElementById("idade").value;
+  const peso = document.getElementById("peso").value;
+  const altura = document.getElementById("altura").value;
+
+  // Calcular o IMC
+  const imc = peso / (altura ** 2).toFixed(1);
+
+ const saida = document.createElement('div');
+
+ div4.appendChild(saida);
+
+ if(imc < 18.5){
+  saida.style.backgroundColor = 'blue';
+  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}, você está abaixo do peso ideal.`;
+
+ }else if(imc >= 18.5 && imc < 24.9){
+  saida.style.backgroundColor = 'blue';
+  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}.`;
+
+ }else if(imc >= 25.0 && imc < 29.9){
+  saida.style.backgroundColor = 'green';
+  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}.`;
+
+ }else if(imc >= 30.0 && imc < 39.9){
+  saida.style.backgroundColor = 'Yellow';
+  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}.`;
+
+ }else if(imc > 40.0){
+  saida.style.backgroundColor = 'red';
+  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}.`;
+
+ }
+
+
+ setTimeout(function() {
+   saida.style.display = 'none';
+ }, 10000); 
+
+});
+
+
+
 
  
-  submitButton.addEventListener("click", function() {
-   
-    const nome = document.getElementById("nome").value;
-    const idade = document.getElementById("idade").value;
-    const peso = document.getElementById("peso").value;
-    const altura = document.getElementById("altura").value;
-
-    // Calcular o IMC
-    const imc = peso / (altura ** 2);
-
-   
-    alert(`Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}.`);
-});
   
 
 
@@ -189,7 +221,7 @@ const btnCalcular = document.getElementById("calcular");
 
 const footer = document.createElement('footer');
 footer.style.width = '100vw'
-footer.style.height = '200px'
+footer.style.height = '80px'
 footer.style.backgroundColor = '#979393'
 footer.style.display = 'flex';
 footer.style.justifyContent = 'space-around'
@@ -205,8 +237,8 @@ footer.appendChild(div_azul)
 const azul = document.createElement('img');
 
 
-azul.style.width = '91px';
-azul.style.height = '91px';
+azul.style.width = '80px';
+azul.style.height = '80px';
 
 
 azul.src = 'img/Azul.png2.PNG'
@@ -222,8 +254,8 @@ footer.appendChild(div_verde);
 const verde = document.createElement('img');
 
 
-verde.style.width = '91px';
-verde.style.height = '91px';
+verde.style.width = '80px';
+verde.style.height = '80px';
 
 
 verde.src = 'img/verde.png'
@@ -241,8 +273,8 @@ footer.appendChild(div_amarelo)
 const amarelo = document.createElement('img');
 
 
-amarelo.style.width = '91px';
-amarelo.style.height = '91px';
+amarelo.style.width = '80px';
+amarelo.style.height = '80px';
 
 
 amarelo.src = 'img/amarelo.png'
@@ -260,8 +292,8 @@ footer.appendChild(div_vermelho)
 const vermelho = document.createElement('img');
 
 
-vermelho.style.width = '91px';
-vermelho.style.height = '91px';
+vermelho.style.width = '80px';
+vermelho.style.height = '80px';
 
 
 vermelho.src = 'img/vermelho.png'
@@ -272,20 +304,20 @@ div_vermelho.appendChild(vermelho);
 
 const paragrafo = document.createElement('h1');
 paragrafo.textContent = 'Normal'
-
+paragrafo.style.fontSize = '180%'
 div_azul.appendChild(paragrafo)
 //
 const paragrafo2 = document.createElement('h1');
 paragrafo2.textContent = 'SOBREPESO'
-
+paragrafo2.style.fontSize = '180%'
 div_verde.appendChild(paragrafo2)
 //
 const paragrafo3 = document.createElement('h1');
 paragrafo3.textContent = 'OBESIDADE'
-
+paragrafo3.style.fontSize = '180%'
 div_amarelo.appendChild(paragrafo3)
 //
 const paragrafo4 = document.createElement('h1');
 paragrafo4.textContent = 'OBESIDADE GRAVE'
-
+paragrafo4.style.fontSize = '180%'
 div_vermelho.appendChild(paragrafo4)
