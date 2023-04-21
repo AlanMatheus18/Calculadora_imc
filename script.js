@@ -178,11 +178,17 @@ submitButton.addEventListener("click", function() {
   const imc = peso / (altura ** 2).toFixed(1);
 
  const saida = document.createElement('div');
-
+ saida.style.display = "flex";
+    saida.style.justifyContent = "center";
+    saida.style.width = "70%";
+    saida.style.margin = ".5% 1%";
+    saida.style.padding = "1% 1%";
+    saida.style.border = "2px solid #141301";
+    saida.style.borderRadius = "4px";
  div4.appendChild(saida);
 
  if(imc < 18.5){
-  saida.style.backgroundColor = 'blue';
+  saida.style.backgroundColor = 'orange';
   saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}, você está abaixo do peso ideal.`;
 
  }else if(imc >= 18.5 && imc < 24.9){
@@ -200,13 +206,13 @@ submitButton.addEventListener("click", function() {
  }else if(imc > 40.0){
   saida.style.backgroundColor = 'red';
   saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}.`;
-
  }
-
 
  setTimeout(function() {
    saida.style.display = 'none';
  }, 10000); 
+
+
 
 });
 
@@ -299,25 +305,46 @@ vermelho.style.height = '80px';
 vermelho.src = 'img/vermelho.png'
 div_vermelho.appendChild(vermelho);
 
+// criando div_laranja
+const div_laranja = document.createElement('div');
+div_laranja.style.display = 'flex'
+footer.appendChild(div_laranja)
+
+
+//img laranja
+const laranja = document.createElement('img');
+
+
+laranja.style.width = '80px';
+laranja.style.height = '80px';
+
+
+laranja.src = 'img/capturar.png'
+div_laranja.appendChild(laranja);
 
 //graus por imc
 
 const paragrafo = document.createElement('h1');
 paragrafo.textContent = 'Normal'
-paragrafo.style.fontSize = '180%'
+paragrafo.style.fontSize = '100%'
 div_azul.appendChild(paragrafo)
 //
 const paragrafo2 = document.createElement('h1');
 paragrafo2.textContent = 'SOBREPESO'
-paragrafo2.style.fontSize = '180%'
+paragrafo2.style.fontSize = '100%'
 div_verde.appendChild(paragrafo2)
 //
 const paragrafo3 = document.createElement('h1');
 paragrafo3.textContent = 'OBESIDADE'
-paragrafo3.style.fontSize = '180%'
+paragrafo3.style.fontSize = '100%'
 div_amarelo.appendChild(paragrafo3)
 //
 const paragrafo4 = document.createElement('h1');
 paragrafo4.textContent = 'OBESIDADE GRAVE'
-paragrafo4.style.fontSize = '180%'
+paragrafo4.style.fontSize = '100%'
 div_vermelho.appendChild(paragrafo4)
+//
+const paragrafo5 = document.createElement('h1');
+paragrafo5.textContent = 'MAGREZA'
+paragrafo5.style.fontSize = '100%'
+div_laranja.appendChild(paragrafo5)
