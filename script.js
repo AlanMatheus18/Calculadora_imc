@@ -189,28 +189,28 @@ submitButton.addEventListener("click", function() {
 
  if(imc < 18.5){
   saida.style.backgroundColor = 'orange';
-  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}, você está abaixo do peso ideal.`;
+  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc}.`;
 
  }else if(imc >= 18.5 && imc < 24.9){
   saida.style.backgroundColor = 'blue';
-  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}.`;
+  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc}.`;
 
  }else if(imc >= 25.0 && imc < 29.9){
   saida.style.backgroundColor = 'green';
-  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}.`;
+  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc}.`;
 
  }else if(imc >= 30.0 && imc < 39.9){
   saida.style.backgroundColor = 'Yellow';
-  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}.`;
+  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc}.`;
 
  }else if(imc > 40.0){
   saida.style.backgroundColor = 'red';
-  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc.toFixed(2)}.`;
+  saida.textContent = `Olá, ${nome}! Seu IMC é ${imc}.`;
  }
 
  setTimeout(function() {
    saida.style.display = 'none';
- }, 10000); 
+ }, 5000); 
 
 
 
@@ -319,7 +319,7 @@ laranja.style.width = '80px';
 laranja.style.height = '80px';
 
 
-laranja.src = 'img/capturar.png'
+laranja.src = 'img/laranja.png'
 div_laranja.appendChild(laranja);
 
 //graus por imc
